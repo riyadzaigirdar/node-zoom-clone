@@ -25,7 +25,7 @@ navigator.mediaDevices
     // tumi new join korle first e onnora tomake call korbe ar stream send korba
     myPeer.on("call", (call) => {
       call.answer(stream);
-
+      // ora tomake call korle ora auto tomake stream ra forward kore rakhe jeta call accept korle tumi listen korte parba
       call.on("stream", (stream) => {
         addVideoStream(recieved, stream);
       });
@@ -46,6 +46,7 @@ myPeer.on("open", (id) => {
 });
 
 // pore jara ase
+// jey new join kore take first call kore
 function connectToNewUser(newUserId, stream) {
   const call = myPeer.call(newUserId, stream);
   const newUserVideo = document.createElement("video");
